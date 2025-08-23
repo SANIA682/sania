@@ -1,27 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 
 int main()
-{   int n, a = 0, b = 1, next, i;
+{   int num, i = 1;
+    unsigned long long fact = 1;
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    printf("Enter number of terms: ");
-    scanf("%d", &n);
-
-    if (n <=0){
-        printf("Please enter a positive number.\n ");
+    if(num < 0){
+        printf("Factorial is not defined for negative numbers.\n");
     }
-    else if (n == 1){
-        printf("Fibonacci Series: %d\n", a);
+    else if (num == 0 || num == 1){
+        printf("factorial of %d = 1\n", num);
     }
     else {
-        printf("Fibonacci Series: %d %d ", a, b);
-        for (i = 3; i <=n; i++){
-            next = a + b;
-            printf("%d ", next);
-            a = b;
-            b = next;
+        while (i <= num){
+            fact *= i;
+            i++;
         }
-        printf("\n");
+        printf("Factorial of %d = %llu\n", num, fact);
     }
 
     return 0;
